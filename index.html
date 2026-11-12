@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>iPhone Duo: iOS 26</title>
 <style>
-/* ============ СИСТЕМНЫЕ ЦВЕТА APPLE ============ */
 :root {
   --sys-blue: #0A84FF;
   --sys-green: #30D158;
@@ -20,10 +18,7 @@
   --sys-gray: #8E8E93;
   --sys-bg: #000000;
   --sys-bg-2: #1C1C1E;
-  --sys-bg-3: #2C2C2E;
   --sys-text: #FFFFFF;
-  --sys-text-2: rgba(235, 235, 245, 0.6);
-  --sys-separator: rgba(84, 84, 88, 0.65);
 }
 
 * {
@@ -46,7 +41,6 @@ html, body {
   justify-content: center;
 }
 
-/* ============ КОРПУС iPHONE DUO ============ */
 #stage {
   display: flex;
   flex-direction: column;
@@ -59,7 +53,6 @@ html, body {
   width: 894px;
   height: 640px;
   transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .half {
@@ -69,18 +62,14 @@ html, body {
   height: 640px;
 }
 
-/* Левая половина (задняя панель) */
 #left {
   left: 0;
   background: #1C1C1E;
   border-radius: 54px 0 0 54px;
-  box-shadow:
-    0 0 0 2px rgba(255, 255, 255, 0.12),
-    0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.12), 0 20px 60px rgba(0,0,0,0.5);
   overflow: hidden;
 }
 
-/* Правая половина */
 #right {
   left: 447px;
   transform-origin: 0 50%;
@@ -94,42 +83,34 @@ html, body {
   -webkit-backface-visibility: hidden;
 }
 
-/* Передняя грань правой половины */
 .front {
   background: #1C1C1E;
   border-radius: 0 54px 54px 0;
-  box-shadow:
-    0 0 0 2px rgba(255, 255, 255, 0.12),
-    0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.12), 0 20px 60px rgba(0,0,0,0.5);
 }
 
-/* Задняя грань правой половины */
 .back {
   transform: rotateY(180deg);
   background: #1C1C1E;
   border-radius: 54px;
-  box-shadow:
-    0 0 0 2px rgba(255, 255, 255, 0.12),
-    0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.12), 0 20px 60px rgba(0,0,0,0.5);
 }
 
-/* Шарнир */
 #hinge {
   position: absolute;
   left: 442px;
   top: 0;
   width: 10px;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.6), transparent);
   pointer-events: none;
   transform: translateZ(2px);
   opacity: 0;
 }
 
-/* ============ ЭКРАНЫ ============ */
+/* ====== ЭКРАНЫ (ВАЖНО: position: relative) ====== */
 .screen {
   position: absolute;
-  inset: 0;
   border-radius: 42px;
   overflow: hidden;
   background: #000;
@@ -141,6 +122,7 @@ html, body {
   top: 15px;
   width: 419px;
   height: 610px;
+  position: relative; /* КРИТИЧНО ВАЖНО */
 }
 
 #s2 {
@@ -152,9 +134,9 @@ html, body {
   visibility: hidden;
   opacity: 0;
   transform: translateZ(1px);
+  position: relative;
 }
 
-/* ============ ОБОИ ============ */
 .wallpaper {
   position: absolute;
   inset: 0;
@@ -165,7 +147,6 @@ html, body {
     linear-gradient(180deg, #1A1A2E 0%, #0A0A1E 100%);
 }
 
-/* ============ СТАТУС-БАР ============ */
 .status-bar {
   position: absolute;
   top: 0;
@@ -182,19 +163,12 @@ html, body {
   z-index: 50;
 }
 
-.status-bar .time {
-  font-family: "SF Pro Display", -apple-system, sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-}
-
 .status-bar .icons {
   display: flex;
   gap: 6px;
   align-items: center;
 }
 
-/* ============ РАБОЧИЙ СТОЛ ============ */
 .home {
   position: absolute;
   inset: 0;
@@ -217,7 +191,6 @@ html, body {
   gap: 30px 0;
 }
 
-/* ============ ИКОНКА ПРИЛОЖЕНИЯ ============ */
 .app {
   display: flex;
   flex-direction: column;
@@ -238,11 +211,8 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.3),
-    inset 0 0 0 0.5px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3), inset 0 0 0 0.5px rgba(255,255,255,0.15);
   overflow: hidden;
-  position: relative;
 }
 
 #s2 .app-icon {
@@ -260,29 +230,27 @@ html, body {
   font-size: 11px;
   font-weight: 400;
   color: #FFF;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
   white-space: nowrap;
 }
 
-/* ============ ДОК ============ */
 .dock {
   margin: 0 -8px 22px;
   padding: 12px;
   border-radius: 32px;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255,255,255,0.18);
   backdrop-filter: blur(30px) saturate(180%);
   -webkit-backdrop-filter: blur(30px) saturate(180%);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 0.5px rgba(255,255,255,0.2);
 }
 
 .dock .app-name {
   display: none;
 }
 
-/* ============ ЭКРАН БЛОКИРОВКИ ============ */
 .lock-screen {
   position: absolute;
   inset: 0;
@@ -292,7 +260,6 @@ html, body {
   align-items: center;
   padding-top: 90px;
   color: #FFF;
-  will-change: transform, filter;
 }
 
 .lock-date {
@@ -324,7 +291,6 @@ html, body {
   50% { opacity: 0.3; }
 }
 
-/* ============ ОКНО ПРИЛОЖЕНИЯ ============ */
 .app-window {
   position: absolute;
   left: 0;
@@ -337,7 +303,7 @@ html, body {
   justify-content: center;
   color: #000;
   will-change: transform, filter, border-radius;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
 }
 
 .app-window .win-content {
@@ -365,7 +331,6 @@ html, body {
   letter-spacing: -0.5px;
 }
 
-/* ============ ДОМАШНЯЯ ПОЛОСКА ============ */
 .home-bar {
   position: absolute;
   bottom: 8px;
@@ -376,11 +341,10 @@ html, body {
   border-radius: 3px;
   background: #FFF;
   z-index: 70;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
   cursor: pointer;
 }
 
-/* ============ КНОПКИ УПРАВЛЕНИЯ ============ */
 #controls {
   margin-top: 24px;
   display: flex;
@@ -397,15 +361,10 @@ html, body {
   border: 0;
   border-radius: 14px;
   padding: 8px 16px;
-  background: rgba(128, 128, 128, 0.2);
+  background: rgba(128,128,128,0.2);
   color: inherit;
   font: inherit;
   cursor: pointer;
-  transition: background 0.15s;
-}
-
-#controls button:hover {
-  background: rgba(128, 128, 128, 0.35);
 }
 
 #controls input[type="range"] {
@@ -413,30 +372,17 @@ html, body {
   accent-color: var(--sys-blue);
 }
 
-/* ============ КНОПКА СКЛАДЫВАНИЯ ============ */
 #fold-btn {
   margin-top: 20px;
   padding: 12px 28px;
   border: 0;
   border-radius: 30px;
-  background: rgba(128, 128, 128, 0.2);
+  background: rgba(128,128,128,0.2);
   color: #666;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
-  transition: background 0.15s;
-}
-
-#fold-btn:hover {
-  background: rgba(128, 128, 128, 0.35);
-}
-
-/* ============ LIQUID GLASS FIX ============ */
-@supports (backdrop-filter: blur(1px)) {
-  .dock {
-    background: rgba(255, 255, 255, 0.15);
-  }
 }
 </style>
 </head>
@@ -466,70 +412,38 @@ html, body {
 
 <script>
 // ==========================================
-// СИСТЕМА ИКОНОК APPLE (SVG)
+// SVG-ИКОНКИ (как в предыдущем коде)
 // ==========================================
-
 const SVG_ICONS = {
   photo: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#fff"/><circle cx="30" cy="30" r="14" fill="#FF9500"/><circle cx="30" cy="30" r="8" fill="#FFCC00"/><circle cx="30" cy="30" r="4" fill="#FF6B00"/></svg>`,
-  
   camera: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#636366"/><rect x="14" y="20" width="32" height="22" rx="4" fill="#8E8E93"/><circle cx="30" cy="31" r="8" fill="#1C1C1E"/><circle cx="30" cy="31" r="5" fill="#3A3A3C"/><circle cx="42" cy="24" r="2" fill="#FF453A"/></svg>`,
-  
   clock: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#1C1C1E"/><circle cx="30" cy="30" r="18" fill="#000"/><circle cx="30" cy="30" r="16" stroke="#FFF" stroke-width="1.5"/><line x1="30" y1="30" x2="30" y2="18" stroke="#FFF" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="30" x2="38" y2="34" stroke="#FFF" stroke-width="2" stroke-linecap="round"/></svg>`,
-  
   calendar: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#fff"/><rect x="10" y="14" width="40" height="36" rx="6" fill="#FF3B30"/><rect x="10" y="14" width="40" height="12" rx="6" fill="#FF453A"/><text x="30" y="42" text-anchor="middle" font-family="SF Pro Display, sans-serif" font-size="16" font-weight="700" fill="#1C1C1E">17</text></svg>`,
-  
   weather: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#3A8BFF"/><circle cx="22" cy="26" r="9" fill="#FFCC00"/><circle cx="38" cy="34" r="11" fill="#FFF"/><circle cx="28" cy="36" r="9" fill="#FFF"/></svg>`,
-  
   maps: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#34C759"/><path d="M14 20 L30 26 L46 20 L46 44 L30 38 L14 44 Z" fill="#FFF" opacity="0.9"/><path d="M30 26 L30 38" stroke="#34C759" stroke-width="2"/><circle cx="30" cy="30" r="4" fill="#FF3B30"/></svg>`,
-  
   notes: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#FFD60A"/><rect x="14" y="14" width="32" height="32" rx="3" fill="#FFF"/><line x1="20" y1="24" x2="40" y2="24" stroke="#FFD60A" stroke-width="2"/><line x1="20" y1="30" x2="40" y2="30" stroke="#FFD60A" stroke-width="2"/><line x1="20" y1="36" x2="34" y2="36" stroke="#FFD60A" stroke-width="2"/></svg>`,
-  
   reminders: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#FF9F0A"/><circle cx="20" cy="22" r="3" fill="#FFF"/><circle cx="20" cy="30" r="3" fill="#FFF"/><circle cx="20" cy="38" r="3" fill="#FFF"/><line x1="28" y1="22" x2="44" y2="22" stroke="#FFF" stroke-width="2"/><line x1="28" y1="30" x2="44" y2="30" stroke="#FFF" stroke-width="2"/><line x1="28" y1="38" x2="44" y2="38" stroke="#FFF" stroke-width="2"/></svg>`,
-  
   stocks: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#1C1C1E"/><polyline points="14,40 22,32 30,36 38,22 46,28" fill="none" stroke="#30D158" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  
   books: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#FF9500"/><rect x="16" y="18" width="10" height="24" rx="2" fill="#FFF"/><rect x="28" y="18" width="10" height="24" rx="2" fill="#FFCC00"/><rect x="40" y="18" width="6" height="24" rx="2" fill="#FFF"/></svg>`,
-  
-  health: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#FFF"/><path d="M30 44 C30 44, 12 34, 12 24 C12 18, 17 14, 22 14 C26 14, 30 18, 30 18 C30 18, 34 14, 38 14 C43 14, 48 18, 48 24 C48 34, 30 44, 30 44 Z" fill="#FF3B30"/></svg>`,
-  
+  health: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#FFF"/><path d="M30 44 C30 44, 12 34, 12 24 C12 18M, 17 14, 22 1614 C26 14, 30  18, 30 1820 C30 18 L, 34 1614, 38 14 C43 14, 48 18, 48 24 C48 34, 30 44, 30 44 Z" fill="#FF3B30"/></svg>`,
   settings: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#8E8E93"/><circle cx="30" cy="30" r="10" fill="none" stroke="#FFF" stroke-width="2"/><circle cx="30" cy="30" r="4" fill="#FFF"/><g stroke="#FFF" stroke-width="3" stroke-linecap="round"><line x1="30" y1="14" x2="30" y2="20"/><line x1="30" y1="40" x2="30" y2="46"/><line x1="14" y1="30" x2="20" y2="30"/><line x1="40" y1="30" x2="46" y2="30"/><line x1="19" y1="19" x2="23" y2="23"/><line x1="37" y1="37" x2="41" y2="41"/><line x1="41" y1="19" x2="37" y2="23"/><line x1="23" y1="37" x2="19" y2="41"/></g></svg>`,
-  
   phone: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#34C759"/><path d="M20 18 C18 18, 16 20, 16 22 C16 36, 24 44, 38 44 C40 44, 42 42, 42 40 L42 36 L34 32 L30 36 C26 34, 24 32, 22 28 L26 24 L22 20 Z" fill="#FFF"/></svg>`,
-  
   safari: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#0A84FF"/><circle cx="30" cy="30" r="20" fill="#FFF"/><circle cx="30" cy="30" r="18" fill="#0A84FF"/><polygon points="38,22 34,34 22,38 26,26" fill="#FF3B30"/><circle cx="30" cy="30" r="2" fill="#FFF"/></svg>`,
-  
   messages: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#30D158"/><ellipse cx="30" cy="30" rx="18" ry="14" fill="#FFF"/><polygon points="20,42 18,50 26,44" fill="#FFF"/></svg>`,
-  
   music: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#FF375F"/><path d="M38 16 L38 38 C38 42, 34 44, 30 44 C26 44, 22 42, 22 38 C22 34, 26 32, 30 32 C32 32, 34 33, 34 34 L34 24 L44 22 L44 16 Z" fill="#FFF"/></svg>`,
-  
-  files: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#0A84FF"/><path d="M16 20 L16 42 L44 42 L44 26 L30 26 L26 20 Z" fill="#FFF"/></svg>`,
-  
+  files: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#0A84FF"/><path d=" 42 L44 42 L44 26 L30 26 L26 20 Z" fill="#FFF"/></svg>`,
   shortcuts: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#5E5CE6"/><rect x="18" y="18" width="24" height="24" rx="6" fill="#FFF"/></svg>`,
-  
   tv: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#1C1C1E"/><rect x="12" y="16" width="36" height="24" rx="3" fill="#FFF"/><circle cx="30" cy="28" r="4" fill="#1C1C1E"/></svg>`,
-  
   podcasts: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#BF5AF2"/><circle cx="30" cy="30" r="6" fill="#FFF"/><circle cx="30" cy="30" r="12" fill="none" stroke="#FFF" stroke-width="2" opacity="0.6"/><circle cx="30" cy="30" r="18" fill="none" stroke="#FFF" stroke-width="2" opacity="0.3"/></svg>`,
-  
   wallet: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#1C1C1E"/><rect x="16" y="22" width="28" height="18" rx="4" fill="#FFF"/><rect x="34" y="28" width="10" height="6" rx="2" fill="#FF9500"/></svg>`,
-  
   findmy: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#34C759"/><circle cx="30" cy="30" r="4" fill="#FFF"/><circle cx="30" cy="30" r="10" fill="none" stroke="#FFF" stroke-width="2" opacity="0.6"/><circle cx="30" cy="30" r="16" fill="none" stroke="#FFF" stroke-width="2" opacity="0.3"/></svg>`,
-  
   measure: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#1C1C1E"/><line x1="14" y1="30" x2="46" y2="30" stroke="#FFD60A" stroke-width="3" stroke-linecap="round"/><line x1="14" y1="24" x2="14" y2="36" stroke="#FFD60A" stroke-width="2"/><line x1="46" y1="24" x2="46" y2="36" stroke="#FFD60A" stroke-width="2"/></svg>`,
-  
   calculator: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#FF9F0A"/><rect x="14" y="14" width="32" height="10" rx="3" fill="#FFF"/><g fill="#FFF"><circle cx="20" cy="32" r="3"/><circle cx="30" cy="32" r="3"/><circle cx="40" cy="32" r="3"/><circle cx="20" cy="42" r="3"/><circle cx="30" cy="42" r="3"/><circle cx="40" cy="42" r="3"/></g></svg>`,
-  
   voice: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#1C1C1E"/><rect x="26" y="16" width="8" height="18" rx="4" fill="#FF453A"/><path d="M20 30 C20 36, 24 40, 30 40 C36 40, 40 36, 40 30" fill="none" stroke="#FF453A" stroke-width="2"/><line x1="30" y1="40" x2="30" y2="46" stroke="#FF453A" stroke-width="2"/></svg>`,
-  
   translate: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#0A84FF"/><text x="30" y="38" text-anchor="middle" font-family="SF Pro Display, sans-serif" font-size="24" font-weight="600" fill="#FFF">A</text></svg>`,
-  
   fitness: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#1C1C1E"/><circle cx="30" cy="30" r="14" fill="none" stroke="#FF375F" stroke-width="3"/><circle cx="30" cy="30" r="8" fill="none" stroke="#30D158" stroke-width="3"/></svg>`,
-  
   home: `<svg viewBox="0 0 60 60" fill="none"><rect width="60" height="60" rx="14" fill="#FF9F0A"/><path d="M16 30 L30 18 L44 30 L44 44 L16 44 Z" fill="#FFF"/></svg>`
 };
-
-// ==========================================
-// ДАННЫЕ ПРИЛОЖЕНИЙ
-// ==========================================
 
 const APPS = [
   { id: "ph", name: "Фото", icon: "photo" },
@@ -562,16 +476,7 @@ const APPS = [
   { id: "hm", name: "Дом", icon: "home" }
 ];
 
-// ==========================================
-// ГЛОБАЛЬНЫЕ НАСТРОЙКИ
-// ==========================================
-
 let SPEED = 0.5;
-let BLUR = true;
-
-// ==========================================
-// КЛАСС ПРУЖИНЫ
-// ==========================================
 
 class Spring {
   constructor() {
@@ -603,15 +508,10 @@ const sty = (el, k, v) => {
   if (c[k] !== v) { c[k] = v; el.style[k] = v; }
 };
 
-// ==========================================
-// КЛАСС ЭКРАНА
-// ==========================================
-
 function createScreen(rootEl, apps, nGrid, cols) {
   const iconGrid = rootEl.querySelector('.icon-grid');
   const dock = rootEl.querySelector('.dock');
   
-  // Иконки
   function makeIcon(app) {
     return `<div class="app" data-id="${app.id}">
       <div class="app-icon">${SVG_ICONS[app.icon]}</div>
@@ -624,17 +524,14 @@ function createScreen(rootEl, apps, nGrid, cols) {
   
   let W = 374, H = 828;
   const L = new Spring();
-  let slow = 0, raf = 0, last = 0;
+  let raf = 0, last = 0;
   let activeWins = [];
   let locked = true;
   
   const kick = () => { if (!raf) { last = performance.now(); raf = requestAnimationFrame(frame); } };
   
   function frame(n) {
-    const raw = (n - last) / 1000;
-    slow = raw > 0.03 ? slow + 1 : 0;
-    if (slow > 6 && BLUR) { BLUR = false; }
-    const dt = Math.min(Math.max(raw, 0), 1/30);
+    const dt = Math.min(Math.max((n - last) / 1000, 0), 1/30);
     last = n;
     
     L.step(dt/2); L.step(dt/2);
@@ -656,421 +553,4 @@ function createScreen(rootEl, apps, nGrid, cols) {
     const anyMoving = !L.rest || activeWins.some(w => !w.P.rest || !w.OX.rest || !w.OY.rest);
     if (!anyMoving) {
       L.x = L.t; L.v = 0;
-      activeWins.forEach(w => { w.P.x = w.P.t; w.OX.x = w.OX.t; w.OY.x = w.OY.t; });
-      renderAll();
-      raf = 0;
-    } else {
-      raf = requestAnimationFrame(frame);
-    }
-  }
-  
-  function renderAll() {
-    const lp = L.x, lc = Math.min(1, Math.max(0, lp));
-    const hbl = (1 - lc) * 8;
-    
-    const home = rootEl.querySelector('.home');
-    if (home) {
-      sty(home, 'transform', `scale(${(1 + 0.1 * (1 - lc)).toFixed(4)})`);
-      sty(home, 'filter', hbl > 0.5 ? `blur(${Math.round(hbl)}px)` : 'none');
-    }
-    
-    const lock = rootEl.querySelector('.lock-screen');
-    if (lock) {
-      sty(lock, 'transform', `translate3d(0, ${(-lp * H).toFixed(1)}px, 0)`);
-      sty(lock, 'opacity', Math.max(0, 1 - lc * 0.8).toFixed(3));
-    }
-    
-    activeWins.forEach(w => {
-      const p = w.P.x;
-      const cp = Math.min(1, Math.max(0, p));
-      const r = w.ir;
-      
-      // Желейный эффект
-      const squash = 1 + Math.sin(cp * Math.PI) * 0.08 * (w.P.v / 2000);
-      const ww = (r.w + (W - r.w) * cp) * squash;
-      const hh = (r.w + (H - r.w) * cp) / squash;
-      
-      const cx = r.x + r.w/2 + (W/2 - r.x - r.w/2) * cp + w.OX.x * cp;
-      const cy = r.y + r.w/2 + (H/2 - r.y - r.w/2) * cp + w.OY.x * cp;
-      
-      sty(w.el, 'width', ww.toFixed(2) + 'px');
-      sty(w.el, 'height', hh.toFixed(2) + 'px');
-      sty(w.el, 'transform', `translate3d(${(cx - ww/2).toFixed(2)}px, ${(cy - hh/2).toFixed(2)}px, 0)`);
-      sty(w.el, 'borderRadius', (14 + 26 * cp).toFixed(2) + 'px');
-      sty(w.el, 'visibility', (p <= 0.01 && w.P.rest) ? 'hidden' : 'visible');
-      
-      const content = w.el.querySelector('.win-content');
-      if (content) {
-        const op = Math.min(1, Math.max(0, (cp - 0.3) / 0.7));
-        sty(content, 'opacity', op.toFixed(3));
-        sty(content, 'transform', `translateY(${(20 * (1 - op)).toFixed(2)}px)`);
-      }
-      
-      if (p <= 0.01 && w.P.rest) {
-        if (w.ico) w.ico.style.opacity = '';
-      } else {
-        if (w.ico) w.ico.style.opacity = '0';
-      }
-    });
-  }
-  
-  function getIconRect(el) {
-    const ico = el.querySelector('.app-icon');
-    let x = 0, y = 0, cur = ico;
-    const rootSc = rootEl.querySelector('.sc') || rootEl;
-    while (cur && cur !== rootSc) {
-      x += cur.offsetLeft;
-      y += cur.offsetTop;
-      cur = cur.offsetParent;
-    }
-    return { x, y, w: ico.offsetWidth };
-  }
-  
-  function openApp(el) {
-    const app = APPS.find(a => a.id === el.dataset.id);
-    if (!app) return;
-    const existing = activeWins.find(w => w.id === app.id);
-    if (existing) {
-      if (existing.P.t === 1 && existing.P.rest) return;
-      existing.P.t = 1; existing.P.drag = false; kick(); return;
-    }
-    
-    const ir = getIconRect(el);
-    const ico = el.querySelector('.app-icon');
-    
-    const winEl = document.createElement('div');
-    winEl.className = 'app-window';
-    winEl.style.background = '#F2F2F7';
-    winEl.style.visibility = 'visible';
-    winEl.style.zIndex = 40 + activeWins.length;
-    
-    winEl.innerHTML = `
-      <div class="win-content">
-        <div class="win-icon">${SVG_ICONS[app.icon]}</div>
-        <div class="win-name">${app.name}</div>
-      </div>
-    `;
-    
-    rootEl.appendChild(winEl);
-    
-    const P = new Spring(); P.t = 1;
-    const OX = new Spring(); OX.e = 0.05; OX.k = 300; OX.t = 0;
-    const OY = new Spring(); OY.e = 0.05; OY.k = 300; OY.t = 0;
-    
-    activeWins.push({
-      id: app.id, P, OX, OY, el: winEl, ico, ir
-    });
-    ico.style.opacity = '0';
-    
-    // Параллельная анимация
-    for (let i = 0; i < activeWins.length - 1; i++) {
-      activeWins[i].P.t = 0;
-    }
-    
-    kick();
-  }
-  
-  const pop = () => {
-    const home = rootEl.querySelector('.home');
-    if (home) home.classList.add('pop');
-    setTimeout(() => { if (home) home.classList.remove('pop'); }, 1300/SPEED + 300);
-  };
-  
-  const unlock = () => { if (!locked) return; locked = false; L.t = 1; pop(); kick(); };
-  const relock = () => { locked = true; L.t = 0; kick(); };
-  
-  const getState = () => ({
-    apps: activeWins.map(w => w.id),
-    locked
-  });
-  
-  function setState(s) {
-    activeWins.forEach(w => { w.el.remove(); if (w.ico) w.ico.style.opacity = ''; });
-    activeWins = [];
-    locked = s.locked;
-    L.x = L.t = locked ? 0 : 1;
-    L.v = 0;
-    
-    if (s.apps && !locked) {
-      s.apps.forEach(id => {
-        const app = APPS.find(a => a.id === id);
-        const el = app && rootEl.querySelector(`.app[data-id="${id}"]`);
-        if (app && el) {
-          let x = 0, y = 0, n = el.querySelector('.app-icon');
-          const ico = n;
-          const rootSc = rootEl.querySelector('.sc') || rootEl;
-          while (n && n !== rootSc) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
-          const ir = { x, y, w: ico.offsetWidth };
-          
-          const winEl = document.createElement('div');
-          winEl.className = 'app-window';
-          winEl.style.background = '#F2F2F7';
-          winEl.style.visibility = 'visible';
-          winEl.style.zIndex = 40 + activeWins.length;
-          winEl.innerHTML = `
-            <div class="win-content">
-              <div class="win-icon">${SVG_ICONS[app.icon]}</div>
-              <div class="win-name">${app.name}</div>
-            </div>
-          `;
-          rootEl.appendChild(winEl);
-          
-          const P = new Spring(); P.x = 1; P.t = 1; P.v = 0;
-          const OX = new Spring(); OX.e = 0.05; OX.k = 300; OX.t = 0;
-          const OY = new Spring(); OY.e = 0.05; OY.k = 300; OY.t = 0;
-          
-          activeWins.push({ id: app.id, P, OX, OY, el: winEl, ico, ir });
-          ico.style.opacity = '0';
-        }
-      });
-    }
-    renderAll();
-  }
-  
-  let d = null;
-  rootEl.addEventListener('pointerdown', e => {
-    const sr = rootEl.getBoundingClientRect();
-    const fb = sr.bottom - e.clientY;
-    
-    if (e.target.closest('.status-bar')) {
-      activeWins.forEach(w => { w.P.t = 0; });
-      relock();
-      return;
-    }
-    
-    const appEl = e.target.closest('.app');
-    const topWin = activeWins[activeWins.length - 1];
-    
-    if (topWin && fb < 60 && !locked) {
-      topWin.P.t = 0;
-      kick();
-      return;
-    }
-    
-    if (!appEl && !locked) return;
-    
-    d = { x: e.clientX, y: e.clientY, moved: false, mode: null, app: appEl };
-    
-    if (locked) {
-      d.mode = 'lock';
-      L.drag = true; L.v = 0;
-      rootEl.setPointerCapture(e.pointerId);
-    }
-  });
-  
-  rootEl.addEventListener('pointermove', e => {
-    if (!d) return;
-    const dy = d.y - e.clientY;
-    if (Math.hypot(e.clientX - d.x, e.clientY - d.y) > 8) d.moved = true;
-    if (d.mode === 'lock') {
-      L.x = Math.max(-0.05, L.x + dy / (H * 0.7));
-      renderAll();
-    }
-  });
-  
-  function up(e) {
-    if (!d) return;
-    const vy = 0;
-    
-    if (d.mode === 'lock') {
-      L.drag = false;
-      const go = !d.moved || L.x > 0.3;
-      L.v = 0;
-      go ? unlock() : relock();
-    } else if (d.app && !d.moved && !locked) {
-      openApp(d.app);
-    }
-    d = null;
-    kick();
-  }
-  
-  rootEl.addEventListener('pointerup', up);
-  rootEl.addEventListener('pointercancel', up);
-  
-  return { measure: () => {}, getState, setState };
-}
-
-// ==========================================
-// СОЗДАНИЕ ЭКРАНОВ
-// ==========================================
-
-const s1 = document.getElementById('s1');
-const s2 = document.getElementById('s2');
-
-s1.innerHTML = `
-  <div class="wallpaper"></div>
-  <div class="status-bar">
-    <span class="time">9:41</span>
-    <span class="icons">📶 🔋</span>
-  </div>
-  <div class="home">
-    <div class="icon-grid"></div>
-  </div>
-  <div class="home" style="justify-content:flex-end">
-    <div class="dock"></div>
-  </div>
-  <div class="lock-screen">
-    <div class="lock-date"></div>
-    <div class="lock-time"></div>
-    <div class="lock-hint">Проведите вверх</div>
-  </div>
-  <div class="home-bar"></div>
-`;
-
-s2.innerHTML = `
-  <div class="wallpaper"></div>
-  <div class="status-bar">
-    <span class="time">9:41</span>
-    <span class="icons">📶 🔋</span>
-  </div>
-  <div class="home">
-    <div class="icon-grid"></div>
-  </div>
-  <div class="home" style="justify-content:flex-end">
-    <div class="dock"></div>
-  </div>
-  <div class="lock-screen">
-    <div class="lock-date"></div>
-    <div class="lock-time"></div>
-    <div class="lock-hint">Проведите вверх</div>
-  </div>
-  <div class="home-bar"></div>
-`;
-
-const SC1 = createScreen(s1, APPS, 12, 4);
-const SC2 = createScreen(s2, APPS, 24, 6);
-
-// ==========================================
-// СКЛАДЫВАНИЕ
-// ==========================================
-
-const device = document.getElementById('device');
-const right = document.getElementById('right');
-const hinge = document.getElementById('hinge');
-const left = document.getElementById('left');
-const foldBtn = document.getElementById('fold-btn');
-
-const F = new Spring();
-F.k = 70; F.z = 0.92; F.e = 0.0006;
-
-let scale = 1;
-let lastAct = false;
-
-function renderFold() {
-  const f = F.x;
-  const c = Math.min(1, Math.max(0, f));
-  
-  right.style.transform = `rotateY(${-180 * (1 - f)}deg)`;
-  device.style.transform = `translateX(${447/2 * (1 - c)}px)`;
-  hinge.style.opacity = c;
-  
-  left.style.borderRadius = `54px ${54*(1-c)}px ${54*(1-c)}px 54px`;
-  
-  s2.style.visibility = f > 0.93 ? 'visible' : 'hidden';
-  s2.style.opacity = Math.min(1, Math.max(0, (f - 0.93) / 0.07));
-  s2.style.pointerEvents = f > 0.99 ? 'auto' : 'none';
-  s1.style.pointerEvents = f < 0.02 ? 'auto' : 'none';
-  
-  const act = f > 0.5;
-  if (act !== lastAct) {
-    lastAct = act;
-    const [src, tgt] = act ? [SC1, SC2] : [SC2, SC1];
-    const st = src.getState();
-    tgt.setState(st);
-    src.setState({ apps: [], locked: st.locked });
-  }
-  
-  const viewW = window.innerWidth - 40;
-  const viewH = window.innerHeight - 200;
-  const curW = 447 * (1 + c);
-  scale = Math.min(viewW / (curW + 30), viewH / (640 + 30), 1.4);
-  document.getElementById('stage').style.transform = `scale(${scale.toFixed(4)})`;
-}
-
-let fraf = 0, fl = 0;
-const kickFold = () => { if (!fraf) { fl = performance.now(); fraf = requestAnimationFrame(ff); } };
-
-function ff(n) {
-  const dt = Math.min((n - fl) / 1000, 1/30);
-  fl = n;
-  F.step(dt/2); F.step(dt/2);
-  F.x = Math.min(F.x, 1.02);
-  renderFold();
-  if (F.rest) {
-    F.x = F.t; F.v = 0; renderFold();
-    fraf = 0;
-  } else {
-    fraf = requestAnimationFrame(ff);
-  }
-}
-
-// Перетаскивание кнопки
-let hd = null;
-foldBtn.addEventListener('pointerdown', e => {
-  hd = { x: e.clientX, f0: F.x, moved: false };
-  F.drag = true; F.v = 0;
-  foldBtn.setPointerCapture(e.pointerId);
-});
-foldBtn.addEventListener('pointermove', e => {
-  if (!hd) return;
-  const dx = e.clientX - hd.x;
-  if (Math.abs(dx) > 6) hd.moved = true;
-  if (hd.moved) {
-    F.x = Math.min(1.02, Math.max(0, hd.f0 + dx / (260 * scale)));
-    renderFold();
-  }
-});
-foldBtn.addEventListener('pointerup', () => {
-  if (!hd) return;
-  F.drag = false;
-  if (!hd.moved) F.t = F.t ? 0 : 1;
-  else F.t = (F.x + 0.12 * F.v > 0.5) ? 1 : 0;
-  hd = null;
-  foldBtn.textContent = F.t ? '⇆ Сложить' : '⇆ Развернуть';
-  kickFold();
-});
-foldBtn.addEventListener('pointercancel', () => { F.drag = false; hd = null; });
-
-// ==========================================
-// УПРАВЛЕНИЕ
-// ==========================================
-
-const speedInput = document.getElementById('speed');
-const speedVal = document.getElementById('speed-val');
-const resetBtn = document.getElementById('reset-btn');
-
-function setSpeed(v) {
-  SPEED = Math.min(3, Math.max(0.01, +v || 0.5));
-  speedInput.value = SPEED;
-  speedVal.textContent = SPEED.toFixed(2) + '×';
-  document.documentElement.style.setProperty('--sp', SPEED);
-  try { localStorage.setItem('duoSpeed', SPEED); } catch (e) {}
-}
-
-speedInput.addEventListener('input', () => setSpeed(speedInput.value));
-resetBtn.addEventListener('click', () => setSpeed(0.5));
-
-try {
-  const saved = +localStorage.getItem('duoSpeed');
-  if (saved >= 0.01 && saved <= 3) setSpeed(saved);
-  else setSpeed(0.5);
-} catch (e) { setSpeed(0.5); }
-
-// Часы
-setInterval(() => {
-  const now = new Date();
-  const time = now.toLocaleTimeString('ru', { hour: '2-digit', minute: '2-digit' });
-  const date = now.toLocaleDateString('ru', { weekday: 'long', day: 'numeric', month: 'long' });
-  
-  document.querySelectorAll('.status-bar .time').forEach(el => el.textContent = time);
-  document.querySelectorAll('.lock-time').forEach(el => el.textContent = time);
-  document.querySelectorAll('.lock-date').forEach(el => el.textContent = date);
-}, 1000);
-
-// Инициализация
-window.addEventListener('resize', renderFold);
-renderFold();
-</script>
-</body>
-</html>
-```
+      activeWins
